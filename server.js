@@ -3,9 +3,11 @@ const path = require('path');
 
 const app = express();
 
-const PORT = 3000;
+const PORT = 8080;
 
 const createPath = (page) => path.resolve(__dirname, 'views', `${page}.html`);
+
+app.use('/views', express.static(path.join(__dirname, 'views')));
 
 app.listen(PORT, error => {
     error ? console.log(error) : console.log(`listening port ${PORT}`);
